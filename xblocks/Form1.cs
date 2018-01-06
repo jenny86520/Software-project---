@@ -108,7 +108,7 @@ namespace banana
     public partial class Form1 : Form
     {
         //int modeIndex = 0;
-        mode MODE = new mode0();
+        mode MODE;
         public Form1()
         {
             InitializeComponent();

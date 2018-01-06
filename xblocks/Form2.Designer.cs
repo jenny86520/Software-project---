@@ -36,7 +36,6 @@
             this.label_block_count = new System.Windows.Forms.Label();
             this.label_score = new System.Windows.Forms.Label();
             this.label_level = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timer1
@@ -50,7 +49,7 @@
             this.label_info.AutoSize = true;
             this.label_info.Font = new System.Drawing.Font("新細明體", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label_info.ForeColor = System.Drawing.Color.Red;
-            this.label_info.Location = new System.Drawing.Point(600, 572);
+            this.label_info.Location = new System.Drawing.Point(676, 572);
             this.label_info.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_info.Name = "label_info";
             this.label_info.Size = new System.Drawing.Size(0, 34);
@@ -115,22 +114,11 @@
             this.label_level.TabIndex = 217;
             this.label_level.Text = "Level:";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(682, 562);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 15);
-            this.label1.TabIndex = 218;
-            this.label1.Text = "label1";
-            this.label1.Visible = false;
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(929, 815);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.label_level);
             this.Controls.Add(this.label_score);
             this.Controls.Add(this.label_block_count);
@@ -155,7 +143,6 @@
         private System.Windows.Forms.Label label_block_count;
         private System.Windows.Forms.Label label_score;
         private System.Windows.Forms.Label label_level;
-        private System.Windows.Forms.Label label1;
     }
 }
 
