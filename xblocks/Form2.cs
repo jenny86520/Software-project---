@@ -1,4 +1,5 @@
-﻿using System;
+﻿using banana;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,9 +30,22 @@ namespace xblocks
         int game_mode = 1;
         uint block_count = 0;
         uint score = 0;
-
-        public Form2()
+        int grids_Left = 50; 
+        public Form2(int index)
         {
+            switch (index)
+            {
+                case 0:
+                    grids_Left = 0;break;
+                case 1:
+                    grids_Left = 50;break;
+                case 2:
+                    grids_Left = 100; break;
+                case 3:
+                    grids_Left = 150; break;
+                case 4:
+                    grids_Left = 400; break;
+            }
             InitializeComponent();
             block_type = (uint)rander.Next(0, 7) + 1;
             block_type_pre = block_type;
@@ -45,8 +59,8 @@ namespace xblocks
                     grids[i, j].Height = 30;
                     grids[i, j].BorderStyle = BorderStyle.FixedSingle;
                     grids[i, j].BackColor = Color.Black;                    
-                    grids[i, j].Left = 150 + 30 * j;
-                    grids[i, j].Top = 600 - i * 30;
+                    grids[i, j].Left = grids_Left + 30 * j; //遊戲畫面的左右位置
+                    grids[i, j].Top = 600 - i * 30; //遊戲畫面的上下位置
                     grids[i, j].Visible = true;
                     this.Controls.Add(grids[i, j]);
                 }
@@ -896,11 +910,10 @@ namespace xblocks
 
         private void button1_Click(object sender, EventArgs e)
         {
-            init_game();            
-            label_info.Text = "";           
-            button1.Visible = false;
-            button1.Enabled = false;
-            timer1.Enabled = true;
+            Form1 f = new Form1();//產生Form2的物件，才可以使用它所提供的Method
+
+            this.Visible = false;//將Form1隱藏。由於在Form1的程式碼內使用this，所以this為Form1的物件本身
+            f.Visible = true;//顯示第二個視窗
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
