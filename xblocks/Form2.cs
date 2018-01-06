@@ -30,23 +30,19 @@ namespace xblocks
         int game_mode = 1;
         uint block_count = 0;
         uint score = 0;
-        int grids_Left = 50; 
-        public Form2(int index)
+
+       
+        public Form2(mode MODE)
         {
-            switch (index)
-            {
-                case 0:
-                    grids_Left = 0;break;
-                case 1:
-                    grids_Left = 50;break;
-                case 2:
-                    grids_Left = 100; break;
-                case 3:
-                    grids_Left = 150; break;
-                case 4:
-                    grids_Left = 400; break;
-            }
+            
+            
             InitializeComponent();
+            this.NextLabel.Location = new System.Drawing.Point(MODE.nextLabel_X(), MODE.nextLabel_Y());
+            this.label_block_count.Location = new System.Drawing.Point(MODE.label_block_X(), MODE.label_block_Y());
+            this.label_score.Location = new System.Drawing.Point(MODE.label_score_X(), MODE.label_score_Y());
+            this.label_level.Location = new System.Drawing.Point(MODE.label_level_X(), MODE.label_level_Y());
+
+            
             block_type = (uint)rander.Next(0, 7) + 1;
             block_type_pre = block_type;
             block_type_next= block_type;
@@ -58,8 +54,8 @@ namespace xblocks
                     grids[i, j].Width = 30;
                     grids[i, j].Height = 30;
                     grids[i, j].BorderStyle = BorderStyle.FixedSingle;
-                    grids[i, j].BackColor = Color.Black;                    
-                    grids[i, j].Left = grids_Left + 30 * j; //遊戲畫面的左右位置
+                    grids[i, j].BackColor = MODE.color();                    
+                    grids[i, j].Left = MODE.get_grids_Left() + 30 * j; //遊戲畫面的左右位置
                     grids[i, j].Top = 600 - i * 30; //遊戲畫面的上下位置
                     grids[i, j].Visible = true;
                     this.Controls.Add(grids[i, j]);
@@ -73,8 +69,8 @@ namespace xblocks
                     next[i, j].Height = 20;
                     next[i, j].BorderStyle = BorderStyle.FixedSingle;
                     next[i, j].BackColor = Color.White;                    
-                    next[i, j].Left = 515 + 20 * j; 
-                    next[i, j].Top = 150 - i * 20;
+                    next[i, j].Left = MODE.get_next_Left() + 20 * j; 
+                    next[i, j].Top =MODE.get_next_Top() - i * 20;
                     next[i, j].Visible = true;
                     this.Controls.Add(next[i, j]);
                 }
@@ -155,19 +151,19 @@ namespace xblocks
                     break;
                case 6:
                     signs[i, j] = signs[i + 1, j] = signs[i + 1, j - 1] = signs[i + 1, j - 2] = true;
-                    grids_color[i, j] = grids_color[i + 1, j] = grids_color[i + 1, j - 1] = grids_color[i + 1, j - 2] = Color.LightBlue;
+                    grids_color[i, j] = grids_color[i + 1, j] = grids_color[i + 1, j - 1] = grids_color[i + 1, j - 2] = Color.Black;
                     break;
                case 16:
                     signs[i, j] = signs[i, j+1] = signs[i + 1, j + 1] = signs[i + 2, j + 1] = true;
-                    grids_color[i, j] = grids_color[i, j + 1] = grids_color[i + 1, j + 1] = grids_color[i + 2, j + 1] = Color.LightBlue;
+                    grids_color[i, j] = grids_color[i, j + 1] = grids_color[i + 1, j + 1] = grids_color[i + 2, j + 1] = Color.Black;
                     break;
                case 26:
                     signs[i, j] = signs[i-1, j] = signs[i-1, j + 1] = signs[i -1, j + 2] = true;
-                    grids_color[i, j] = grids_color[i - 1, j] = grids_color[i - 1, j + 1] = grids_color[i - 1, j + 2] = Color.LightBlue;
+                    grids_color[i, j] = grids_color[i - 1, j] = grids_color[i - 1, j + 1] = grids_color[i - 1, j + 2] = Color.Black;
                     break;
                case 36:
                     signs[i, j] = signs[i, j-1] = signs[i - 1, j - 1] = signs[i - 2, j -1] = true;
-                    grids_color[i, j] = grids_color[i, j - 1] = grids_color[i - 1, j - 1] = grids_color[i - 2, j - 1] = Color.LightBlue;
+                    grids_color[i, j] = grids_color[i, j - 1] = grids_color[i - 1, j - 1] = grids_color[i - 2, j - 1] = Color.Black;
                     break;
 
                case 7:
@@ -578,12 +574,13 @@ namespace xblocks
         void show_grids()
         {
             int i, j;
+            Color color_ = grids[0, 0].BackColor;
             for (i = 0; i < 20; i++)
                 for (j = 0; j < 10; j++)
                     if (signs[i, j])
                         grids[i, j].BackColor = grids_color[i, j];
                     else
-                        grids[i, j].BackColor = Color.Black;
+                        grids[i, j].BackColor = color_;
         }
 
         void display_next_block(uint type)
@@ -610,7 +607,7 @@ namespace xblocks
                         next[1, 0].BackColor = next[2, 0].BackColor = next[2, 1].BackColor = next[2, 2].BackColor = Color.Orange;
                         break;
                     case 6:
-                        next[2, 0].BackColor = next[2, 1].BackColor = next[2, 2].BackColor = next[1, 2].BackColor = Color.LightBlue;
+                        next[2, 0].BackColor = next[2, 1].BackColor = next[2, 2].BackColor = next[1, 2].BackColor = Color.Black;
                         break;
                     case 7:
                        next[1, 0].BackColor = next[1, 1].BackColor = next[1, 2].BackColor = next[2, 1].BackColor = Color.Purple;
@@ -630,7 +627,7 @@ namespace xblocks
                     block_type_next = (uint)rander.Next(0, 7) + 1;
                     display_next_block(block_type_next);
                     block_count++;
-                    score += 5;
+                    //score += 5;
                     label_block_count.Text = "Blocks:" + block_count.ToString();
                     label_score.Text = "Score:" + score.ToString();
                     if (game_mode == 1)
@@ -686,7 +683,7 @@ namespace xblocks
 
                 if (row_sum == 10)
                 {
-                    score += 20;
+                    score += 10;
                     label_score.Text = "Score:" + score.ToString();
                     for (j = 0; j < 10; j++)
                         signs[i, j] = false;
