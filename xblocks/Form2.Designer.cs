@@ -32,7 +32,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label_info = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label213 = new System.Windows.Forms.Label();
+            this.NextLabel = new System.Windows.Forms.Label();
             this.label_block_count = new System.Windows.Forms.Label();
             this.label_score = new System.Windows.Forms.Label();
             this.label_level = new System.Windows.Forms.Label();
@@ -60,7 +60,7 @@
             this.button1.Enabled = false;
             this.button1.Font = new System.Drawing.Font("新細明體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button1.Location = new System.Drawing.Point(308, 311);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(220, 71);
             this.button1.TabIndex = 201;
@@ -70,16 +70,16 @@
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label213
+            // NextLabel
             // 
-            this.label213.AutoSize = true;
-            this.label213.Font = new System.Drawing.Font("新細明體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label213.Location = new System.Drawing.Point(693, 224);
-            this.label213.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label213.Name = "label213";
-            this.label213.Size = new System.Drawing.Size(61, 27);
-            this.label213.TabIndex = 214;
-            this.label213.Text = "Next";
+            this.NextLabel.AutoSize = true;
+            this.NextLabel.Font = new System.Drawing.Font("新細明體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.NextLabel.Location = new System.Drawing.Point(693, 224);
+            this.NextLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.NextLabel.Name = "NextLabel";
+            this.NextLabel.Size = new System.Drawing.Size(61, 27);
+            this.NextLabel.TabIndex = 214;
+            this.NextLabel.Text = "Next";
             // 
             // label_block_count
             // 
@@ -122,10 +122,10 @@
             this.Controls.Add(this.label_level);
             this.Controls.Add(this.label_score);
             this.Controls.Add(this.label_block_count);
-            this.Controls.Add(this.label213);
+            this.Controls.Add(this.NextLabel);
             this.Controls.Add(this.label_info);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
             this.Text = "xblocks";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -139,7 +139,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label_info;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label213;
+        private System.Windows.Forms.Label NextLabel;
         private System.Windows.Forms.Label label_block_count;
         private System.Windows.Forms.Label label_score;
         private System.Windows.Forms.Label label_level;
