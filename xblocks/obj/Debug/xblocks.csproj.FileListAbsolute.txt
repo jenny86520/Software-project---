@@ -39,3 +39,11 @@ C:\Users\Hua\Desktop\xblocks\xblocks\obj\Debug\xblocks.csproj.GenerateResource.C
 C:\Users\Hua\Desktop\xblocks\xblocks\obj\Debug\xblocks.csproj.CoreCompileInputs.cache
 C:\Users\Hua\Desktop\xblocks\xblocks\obj\Debug\xblocks.exe
 C:\Users\Hua\Desktop\xblocks\xblocks\obj\Debug\xblocks.pdb
+C:\Users\jenny\Desktop\xblocks\xblocks\obj\Debug\xblocks.csprojResolveAssemblyReference.cache
+C:\Users\jenny\Desktop\xblocks\xblocks\obj\Debug\banana.mode.resources
+C:\Users\jenny\Desktop\xblocks\xblocks\obj\Debug\xblocks.Form2.resources
+C:\Users\jenny\Desktop\xblocks\xblocks\obj\Debug\xblocks.Properties.Resources.resources
+C:\Users\jenny\Desktop\xblocks\xblocks\obj\Debug\xblocks.csproj.GenerateResource.Cache
+C:\Users\jenny\Desktop\xblocks\xblocks\obj\Debug\xblocks.csproj.CoreCompileInputs.cache
+C:\Users\jenny\Desktop\xblocks\xblocks\obj\Debug\xblocks.exe
+C:\Users\jenny\Desktop\xblocks\xblocks\obj\Debug\xblocks.pdb

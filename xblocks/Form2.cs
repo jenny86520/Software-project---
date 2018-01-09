@@ -917,12 +917,6 @@ namespace xblocks
             f.Visible = true;//顯示第二個視窗
         }
 
-        private void Form1_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Down)
-            {
-                timer1.Interval = timer_interval;
-            }
-        }
+        
     }
 }
