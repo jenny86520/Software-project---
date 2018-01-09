@@ -13,8 +13,8 @@ namespace xblocks
 {
     public partial class Form2 : Form
     {
-        Label[,] grids = new Label[20,10]; //main area, total 200 grids 
-        Label[,] next = new Label[4, 3];   //next area, total 12 grids 
+        Label[,] grids = new Label[20,10]; //遊戲區域，總共200格
+        Label[,] next = new Label[4, 3];   //顯示下一個方塊的區域，總共12格
         bool[,] signs = new bool[24,10];
         Color[,] grids_color = new Color[24,10];
         uint block_row = 20;
@@ -30,27 +30,23 @@ namespace xblocks
         int game_mode = 1;
         uint block_count = 0;
         uint score = 0;
-        int grids_Left = 50; 
-        public Form2(int index)
+
+        Color color_ = Color.Black;
+        public Form2(mode MODE)
         {
-            switch (index)
-            {
-                case 0:
-                    grids_Left = 0;break;
-                case 1:
-                    grids_Left = 50;break;
-                case 2:
-                    grids_Left = 100; break;
-                case 3:
-                    grids_Left = 150; break;
-                case 4:
-                    grids_Left = 400; break;
-            }
+
+            color_ = MODE.color();
             InitializeComponent();
-            block_type = (uint)rander.Next(0, 7) + 1;
+            this.NextLabel.Location = new System.Drawing.Point(MODE.nextLabel_X(), MODE.nextLabel_Y());
+            this.label_block_count.Location = new System.Drawing.Point(MODE.label_block_X(), MODE.label_block_Y());
+            this.label_score.Location = new System.Drawing.Point(MODE.label_score_X(), MODE.label_score_Y());
+            this.label_level.Location = new System.Drawing.Point(MODE.label_level_X(), MODE.label_level_Y());
+
+            
+            block_type = (uint)rander.Next(0, 7) + 1; //亂數決定起始方塊(1-7)
             block_type_pre = block_type;
             block_type_next= block_type;
-            // generate 20x10 labels for "main" area, dynamically.
+            // 產生20*10的labels來作為遊戲區域
             for (int i = 0; i < 20; i++)
                 for (int j = 0; j < 10; j++)
                 {
@@ -58,13 +54,13 @@ namespace xblocks
                     grids[i, j].Width = 30;
                     grids[i, j].Height = 30;
                     grids[i, j].BorderStyle = BorderStyle.FixedSingle;
-                    grids[i, j].BackColor = Color.Black;                    
-                    grids[i, j].Left = grids_Left + 30 * j; //遊戲畫面的左右位置
+                    grids[i, j].BackColor = MODE.color();                    
+                    grids[i, j].Left = MODE.get_grids_Left() + 30 * j; //遊戲畫面的左右位置
                     grids[i, j].Top = 600 - i * 30; //遊戲畫面的上下位置
                     grids[i, j].Visible = true;
                     this.Controls.Add(grids[i, j]);
                 }
-            // generate 4x3 labels for "next" area, dynamically.
+            // 產生4*3的labels來作為下一個方塊顯示的區域
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 3; j++)
                 {
@@ -73,19 +69,20 @@ namespace xblocks
                     next[i, j].Height = 20;
                     next[i, j].BorderStyle = BorderStyle.FixedSingle;
                     next[i, j].BackColor = Color.White;                    
-                    next[i, j].Left = 515 + 20 * j; 
-                    next[i, j].Top = 150 - i * 20;
+                    next[i, j].Left = MODE.get_next_Left() + 20 * j; 
+                    next[i, j].Top =MODE.get_next_Top() - i * 20;
                     next[i, j].Visible = true;
                     this.Controls.Add(next[i, j]);
                 }
-            // init variables of the game
+            // 遊戲開始
             init_game();
            
         }
 
+        //設定遊戲的初始值 
         void init_game()
         {
-            block_type = (uint)rander.Next(0, 7) + 1;
+            block_type = (uint)rander.Next(0, 7) + 1; //隨機選擇方塊(1-7)
             block_type_pre = block_type;
             block_row = 20;
             block_col = 4;
@@ -109,80 +106,80 @@ namespace xblocks
         {
             switch (type)
             {
-                case 1: 
+                case 1: //藍色直條方塊
                     signs[i, j] = signs[i+1, j] = signs[i+2, j] = signs[i+3, j] = true;
                     grids_color[i, j] = grids_color[i + 1, j] = grids_color[i + 2, j] = grids_color[i + 3, j] = Color.Blue;
                     break;
-                case 11: 
+                case 11: //藍色直條方塊-旋轉
                     signs[i, j] = signs[i, j+1] = signs[i, j+2] = signs[i, j+3] = true;
                     grids_color[i, j] = grids_color[i, j + 1] = grids_color[i, j + 2] = grids_color[i, j + 3] = Color.Blue;
                     break;
-               case 2:
+               case 2: //黃色四正方塊
                     signs[i, j] = signs[i + 1, j] = signs[i , j+1] = signs[i + 1, j+1] = true;
                     grids_color[i, j] = grids_color[i + 1, j] = grids_color[i, j + 1] = grids_color[i + 1, j + 1] = Color.Yellow;
                     break;
-               case 3:
+               case 3:  //紅色Z字方塊
                     signs[i, j] = signs[i + 1, j] = signs[i+1, j-1] = signs[i, j + 1] = true;
                     grids_color[i, j] = grids_color[i + 1, j] = grids_color[i + 1, j - 1] = grids_color[i, j + 1] = Color.Red;
                     break;
-               case 13:
+               case 13:  //紅色Z字方塊-旋轉
                     signs[i, j] = signs[i - 1, j] = signs[i , j + 1] = signs[i+1, j + 1] = true;
                     grids_color[i, j] = grids_color[i - 1, j] = grids_color[i, j + 1] = grids_color[i + 1, j + 1] = Color.Red;
                     break;
-               case 4:
+               case 4:  //綠色S字方塊
                     signs[i, j] = signs[i , j-1] = signs[i + 1, j] = signs[i+1, j + 1] = true;
                     grids_color[i, j] = grids_color[i, j - 1] = grids_color[i + 1, j] = grids_color[i + 1, j + 1] = Color.Green;
                     break;
-               case 14:
+               case 14:  //綠色S字方塊-旋轉
                     signs[i, j] = signs[i+1, j] = signs[i, j+1] = signs[i-1, j + 1] = true;
                     grids_color[i, j] = grids_color[i + 1, j] = grids_color[i, j + 1] = grids_color[i - 1, j + 1] = Color.Green;
                     break;
-               case 5:
+               case 5: //橘色L字方塊
                     signs[i, j] = signs[i+1, j] = signs[i + 1, j+1] = signs[i + 1, j + 2] = true;
                     grids_color[i, j] = grids_color[i + 1, j] = grids_color[i + 1, j + 1] = grids_color[i + 1, j + 2] = Color.Orange;
                     break;
-               case 15:
+               case 15: //橘色L字方塊-旋轉
                     signs[i, j] = signs[i, j-1] = signs[i + 1, j - 1] = signs[i + 2, j -1] = true;
                     grids_color[i, j] = grids_color[i, j - 1] = grids_color[i + 1, j - 1] = grids_color[i + 2, j - 1] = Color.Orange;
                     break;
-               case 25:
+               case 25: //橘色L字方塊-旋轉
                     signs[i, j] = signs[i-1, j] = signs[i - 1, j - 1] = signs[i -1, j - 2] = true;
                     grids_color[i, j] = grids_color[i - 1, j] = grids_color[i - 1, j - 1] = grids_color[i - 1, j - 2] = Color.Orange;
                     break;
-               case 35:
+               case 35: //橘色L字方塊-旋轉
                     signs[i, j] = signs[i, j+1] = signs[i - 1, j + 1] = signs[i - 2, j +1] = true;
                     grids_color[i, j] = grids_color[i, j + 1] = grids_color[i - 1, j + 1] = grids_color[i - 2, j + 1] = Color.Orange;
                     break;
-               case 6:
+               case 6: //黑色反L字方塊
                     signs[i, j] = signs[i + 1, j] = signs[i + 1, j - 1] = signs[i + 1, j - 2] = true;
-                    grids_color[i, j] = grids_color[i + 1, j] = grids_color[i + 1, j - 1] = grids_color[i + 1, j - 2] = Color.LightBlue;
+                    grids_color[i, j] = grids_color[i + 1, j] = grids_color[i + 1, j - 1] = grids_color[i + 1, j - 2] = Color.Black;
                     break;
-               case 16:
+               case 16: //黑色反L字方塊-旋轉
                     signs[i, j] = signs[i, j+1] = signs[i + 1, j + 1] = signs[i + 2, j + 1] = true;
-                    grids_color[i, j] = grids_color[i, j + 1] = grids_color[i + 1, j + 1] = grids_color[i + 2, j + 1] = Color.LightBlue;
+                    grids_color[i, j] = grids_color[i, j + 1] = grids_color[i + 1, j + 1] = grids_color[i + 2, j + 1] = Color.Black;
                     break;
-               case 26:
+               case 26: //黑色反L字方塊-旋轉
                     signs[i, j] = signs[i-1, j] = signs[i-1, j + 1] = signs[i -1, j + 2] = true;
-                    grids_color[i, j] = grids_color[i - 1, j] = grids_color[i - 1, j + 1] = grids_color[i - 1, j + 2] = Color.LightBlue;
+                    grids_color[i, j] = grids_color[i - 1, j] = grids_color[i - 1, j + 1] = grids_color[i - 1, j + 2] = Color.Black;
                     break;
-               case 36:
+               case 36: //黑色反L字方塊-旋轉
                     signs[i, j] = signs[i, j-1] = signs[i - 1, j - 1] = signs[i - 2, j -1] = true;
-                    grids_color[i, j] = grids_color[i, j - 1] = grids_color[i - 1, j - 1] = grids_color[i - 2, j - 1] = Color.LightBlue;
+                    grids_color[i, j] = grids_color[i, j - 1] = grids_color[i - 1, j - 1] = grids_color[i - 2, j - 1] = Color.Black;
                     break;
 
-               case 7:
+               case 7: //紫色土字方塊
                     signs[i, j] = signs[i, j-1] = signs[i, j+1] = signs[i+1, j] = true;
                     grids_color[i, j] = grids_color[i, j - 1] = grids_color[i, j + 1] = grids_color[i + 1, j] = Color.Purple;
                     break;
-               case 17:
+               case 17: //紫色土字方塊-旋轉
                     signs[i, j] = signs[i, j + 1] = signs[i-1, j] = signs[i + 1, j] = true;
                     grids_color[i, j] = grids_color[i, j + 1] = grids_color[i - 1, j] = grids_color[i + 1, j] = Color.Purple;
                     break;
-               case 27:
+               case 27: //紫色土字方塊-旋轉
                     signs[i, j] = signs[i, j - 1] = signs[i, j+1] = signs[i - 1, j] = true;
                     grids_color[i, j] = grids_color[i, j - 1] = grids_color[i, j + 1] = grids_color[i - 1, j] = Color.Purple;
                     break;
-               case 37:
+               case 37: //紫色土字方塊-旋轉
                     signs[i, j] = signs[i, j - 1] = signs[i+1, j] = signs[i - 1, j] = true;
                     grids_color[i, j] = grids_color[i, j - 1] = grids_color[i + 1, j] = grids_color[i - 1, j] = Color.Purple;
                     break;
@@ -578,14 +575,16 @@ namespace xblocks
         void show_grids()
         {
             int i, j;
+           
             for (i = 0; i < 20; i++)
                 for (j = 0; j < 10; j++)
                     if (signs[i, j])
                         grids[i, j].BackColor = grids_color[i, j];
                     else
-                        grids[i, j].BackColor = Color.Black;
+                        grids[i, j].BackColor = color_;
         }
 
+        //顯示下一個方塊的區域
         void display_next_block(uint type)
         {
             for (int i = 0; i < 4; i++)
@@ -610,7 +609,7 @@ namespace xblocks
                         next[1, 0].BackColor = next[2, 0].BackColor = next[2, 1].BackColor = next[2, 2].BackColor = Color.Orange;
                         break;
                     case 6:
-                        next[2, 0].BackColor = next[2, 1].BackColor = next[2, 2].BackColor = next[1, 2].BackColor = Color.LightBlue;
+                        next[2, 0].BackColor = next[2, 1].BackColor = next[2, 2].BackColor = next[1, 2].BackColor = Color.Black;
                         break;
                     case 7:
                        next[1, 0].BackColor = next[1, 1].BackColor = next[1, 2].BackColor = next[2, 1].BackColor = Color.Purple;
@@ -627,10 +626,10 @@ namespace xblocks
 
                 if (block_row == 19)
                 {
-                    block_type_next = (uint)rander.Next(0, 7) + 1;
+                    block_type_next = (uint)rander.Next(0, 7) + 1; //隨機選擇下一個方塊(1-7)
                     display_next_block(block_type_next);
                     block_count++;
-                    score += 5;
+                    //score += 5;
                     label_block_count.Text = "Blocks:" + block_count.ToString();
                     label_score.Text = "Score:" + score.ToString();
                     if (game_mode == 1)
@@ -681,25 +680,27 @@ namespace xblocks
             while(i < 20)
             {
                 row_sum = 0;
+                //檢查是否有滿一列的方塊
                 for (j = 0; j < 10; j++)
                     if (signs[i, j]) row_sum++;
 
                 if (row_sum == 10)
                 {
-                    score += 20;
+                    score += 10;
                     label_score.Text = "Score:" + score.ToString();
                     for (j = 0; j < 10; j++)
                         signs[i, j] = false;
 
-                    show_grids(); // show a black line 
+                    show_grids(); //更新遊戲畫面
 
+                    //方塊向下移
                     for (uint y = i; y < 21; y++)
                         for (j = 0; j < 10; j++)
                         {
                             signs[y, j] = signs[y + 1, j];
                             grids_color[y, j] = grids_color[y + 1, j];
                         }
-                    show_grids();
+                    show_grids(); //更新遊戲畫面
                 }
                 else i++;
             }
