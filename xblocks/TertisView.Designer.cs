@@ -1,6 +1,6 @@
 ﻿namespace xblocks
 {
-    partial class Form2
+    partial class TertisView
     {
         /// <summary>
         /// 設計工具所需的變數。
