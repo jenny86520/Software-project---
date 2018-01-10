@@ -39,3 +39,17 @@ C:\Users\Hua\Desktop\xblocks\xblocks\obj\Debug\xblocks.csproj.CoreCompileInputs.
 C:\Users\Hua\Desktop\xblocks\xblocks\obj\Debug\xblocks.exe
 C:\Users\Hua\Desktop\xblocks\xblocks\obj\Debug\xblocks.pdb
 C:\Users\Hua\Desktop\xblocks\xblocks\obj\Debug\xblocks.TertisView.resources
+<<<<<<< HEAD
+=======
+C:\Users\jenny\Desktop\xblocks\xblocks\bin\Debug\xblocks.exe.config
+C:\Users\jenny\Desktop\xblocks\xblocks\bin\Debug\xblocks.exe
+C:\Users\jenny\Desktop\xblocks\xblocks\bin\Debug\xblocks.pdb
+C:\Users\jenny\Desktop\xblocks\xblocks\obj\Debug\xblocks.csprojResolveAssemblyReference.cache
+C:\Users\jenny\Desktop\xblocks\xblocks\obj\Debug\banana.mode.resources
+C:\Users\jenny\Desktop\xblocks\xblocks\obj\Debug\xblocks.TertisView.resources
+C:\Users\jenny\Desktop\xblocks\xblocks\obj\Debug\xblocks.Properties.Resources.resources
+C:\Users\jenny\Desktop\xblocks\xblocks\obj\Debug\xblocks.csproj.GenerateResource.Cache
+C:\Users\jenny\Desktop\xblocks\xblocks\obj\Debug\xblocks.csproj.CoreCompileInputs.cache
+C:\Users\jenny\Desktop\xblocks\xblocks\obj\Debug\xblocks.exe
+C:\Users\jenny\Desktop\xblocks\xblocks\obj\Debug\xblocks.pdb
+>>>>>>> 1b2ed5fdff9de27c305e8c2d3dc0d2a3a5854090
