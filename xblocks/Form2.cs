@@ -32,6 +32,7 @@ namespace xblocks
         uint score = 0;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
        
         public Form2(mode MODE)
         {
@@ -44,6 +45,13 @@ namespace xblocks
 
             color_ = MODE.color();
 >>>>>>> 9dbbd2776964be85934dc5e265d3fdc95a024e84
+=======
+        Color color_ = Color.Black;
+        public Form2(mode MODE)
+        {
+
+            color_ = MODE.color();
+>>>>>>> d282d5d56fcfe87d8a628374e02568bb5807a265
             InitializeComponent();
             this.NextLabel.Location = new System.Drawing.Point(MODE.nextLabel_X(), MODE.nextLabel_Y());
             this.label_block_count.Location = new System.Drawing.Point(MODE.label_block_X(), MODE.label_block_Y());
@@ -52,10 +60,14 @@ namespace xblocks
 
             
 <<<<<<< HEAD
+<<<<<<< HEAD
             block_type = (uint)rander.Next(0, 7) + 1;
 =======
             block_type = (uint)rander.Next(0, 7) + 1; //亂數決定起始方塊(1-7)
 >>>>>>> 9dbbd2776964be85934dc5e265d3fdc95a024e84
+=======
+            block_type = (uint)rander.Next(0, 7) + 1; //亂數決定起始方塊(1-7)
+>>>>>>> d282d5d56fcfe87d8a628374e02568bb5807a265
             block_type_pre = block_type;
             block_type_next= block_type;
             // 產生20*10的labels來作為遊戲區域
@@ -588,10 +600,14 @@ namespace xblocks
         {
             int i, j;
 <<<<<<< HEAD
+<<<<<<< HEAD
             Color color_ = grids[0, 0].BackColor;
 =======
            
 >>>>>>> 9dbbd2776964be85934dc5e265d3fdc95a024e84
+=======
+           
+>>>>>>> d282d5d56fcfe87d8a628374e02568bb5807a265
             for (i = 0; i < 20; i++)
                 for (j = 0; j < 10; j++)
                     if (signs[i, j])
