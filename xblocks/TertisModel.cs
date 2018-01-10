@@ -31,11 +31,11 @@ namespace banana
     class mode0 : mode 
     {
 
-        public override int get_grids_Left() { return 50; }
-        public override int get_next_Left() { return 500; }
-        public override int get_next_Top() { return 150; }
-        public override int nextLabel_X() { return 500; }
-        public override int nextLabel_Y() { return 50; }
+        public override int get_grids_Left() { return 50; }//遊戲視窗x
+        public override int get_next_Left() { return 500; }//next視窗x
+        public override int get_next_Top() { return 150; }//next視窗y
+        public override int nextLabel_X() { return 500; }//nextlabel視窗x
+        public override int nextLabel_Y() { return 50; }//nextlabel視窗y
         public override int label_block_X() { return 500; }//label_block視窗x
         public override int label_block_Y() { return 200; }//label_block視窗y
         public override int label_score_X() { return 500; }//label_score視窗x
@@ -47,11 +47,11 @@ namespace banana
     }
     public class mode1 : mode
     {
-        public override int get_grids_Left() { return 350; }
-        public override int get_next_Left() { return 100; }
-        public override int get_next_Top() { return 200; }
-        public override int nextLabel_X() { return 100; }
-        public override int nextLabel_Y() { return 100; }
+        public override int get_grids_Left() { return 350; }//遊戲視窗x
+        public override int get_next_Left() { return 100; }//next視窗x
+        public override int get_next_Top() { return 200; }//next視窗y
+        public override int nextLabel_X() { return 100; }//nextlabel視窗x
+        public override int nextLabel_Y() { return 100; }//nextlabel視窗y
         public override int label_block_X() { return 100; }//label_block視窗x
         public override int label_block_Y() { return 230; }//label_block視窗y
         public override int label_score_X() { return 100; }//label_score視窗x
@@ -62,11 +62,11 @@ namespace banana
     }
     public class mode2 : mode
     {
-        public override int get_grids_Left() { return 350; }
-        public override int get_next_Left() { return 100; }
-        public override int get_next_Top() { return 350; }
-        public override int nextLabel_X() { return 100; }
-        public override int nextLabel_Y() { return 250; }
+        public override int get_grids_Left() { return 350; }//遊戲視窗x
+        public override int get_next_Left() { return 100; }//next視窗x
+        public override int get_next_Top() { return 350; }//next視窗y
+        public override int nextLabel_X() { return 100; }//nextlabel視窗x
+        public override int nextLabel_Y() { return 250; }//nextlabel視窗y
         public override int label_block_X() { return 100; }//label_block視窗x
         public override int label_block_Y() { return 200; }//label_block視窗y
         public override int label_score_X() { return 100; }//label_score視窗x
@@ -77,11 +77,11 @@ namespace banana
     }
     public class mode3 : mode
     {
-        public override int get_grids_Left() { return 50; }
-        public override int get_next_Left() { return 500; }
-        public override int get_next_Top() { return 150; }
-        public override int nextLabel_X() { return 500; }
-        public override int nextLabel_Y() { return 50; }
+        public override int get_grids_Left() { return 50; }//遊戲視窗x
+        public override int get_next_Left() { return 500; }//next視窗x
+        public override int get_next_Top() { return 150; }//next視窗y
+        public override int nextLabel_X() { return 500; }//nextlabel視窗x
+        public override int nextLabel_Y() { return 50; }//nextlabel視窗y
         public override int label_block_X() { return 500; }//label_block視窗x
         public override int label_block_Y() { return 200; }//label_block視窗y
         public override int label_score_X() { return 500; }//label_score視窗x
@@ -92,11 +92,11 @@ namespace banana
     }
     public class mode4 : mode
     {
-        public override int get_grids_Left() { return 350; }
-        public override int get_next_Left() { return 100; }
-        public override int get_next_Top() { return 200; }
-        public override int nextLabel_X() { return 100; }
-        public override int nextLabel_Y() { return 100; }
+        public override int get_grids_Left() { return 350; }//遊戲視窗x
+        public override int get_next_Left() { return 100; }//next視窗x
+        public override int get_next_Top() { return 200; }//next視窗y
+        public override int nextLabel_X() { return 100; }//nextlabel視窗x
+        public override int nextLabel_Y() { return 100; }//nextlabel視窗y
         public override int label_block_X() { return 100; }//label_block視窗x
         public override int label_block_Y() { return 230; }//label_block視窗y
         public override int label_score_X() { return 100; }//label_score視窗x
@@ -105,15 +105,10 @@ namespace banana
         public override int label_level_Y() { return 330; }//label_level視窗y
         public override Color color() { return Color.Thistle; }
     }
-    public partial class Form1 : Form
+    public partial class TertisModel : Form
     {
-        //int modeIndex = 0;
-<<<<<<< HEAD
-        mode MODE;
-=======
         mode MODE = new mode0();
->>>>>>> 9dbbd2776964be85934dc5e265d3fdc95a024e84
-        public Form1()
+        public TertisModel()
         {
             InitializeComponent();
         }
@@ -146,7 +141,7 @@ namespace banana
 
         private void button8_Click(object sender, EventArgs e)
         {
-            Form2 f = new Form2(MODE);//產生Form2的物件，才可以使用它所提供的Method
+            TertisView f = new TertisView(MODE);//產生Form2的物件，才可以使用它所提供的Method
 
             this.Visible = false;//將Form1隱藏。由於在Form1的程式碼內使用this，所以this為Form1的物件本身
             f.Visible = true;//顯示第二個視窗
