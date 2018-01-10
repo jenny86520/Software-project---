@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-﻿using banana;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-public partial class TertisComtroller : Form
-{
-
-=======
 ﻿using banana;
 using System;
 using System.Collections.Generic;
@@ -859,5 +844,4 @@ namespace xblocks
             }
         }
     }
->>>>>>> 1b2ed5fdff9de27c305e8c2d3dc0d2a3a5854090
 }
