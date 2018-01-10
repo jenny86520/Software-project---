@@ -1,6 +1,6 @@
 ﻿namespace banana
 {
-    partial class Form1
+    partial class TertisModel
     {
         /// <summary>
         /// 設計工具所需的變數。
