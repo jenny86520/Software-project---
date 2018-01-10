@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "ExpandedNodes": [
     "",
@@ -5,4 +6,13 @@
   ],
   "SelectedNode": "\\xblocks.sln",
   "PreviewInSolutionExplorer": false
+=======
+{
+  "ExpandedNodes": [
+    "",
+    "\\xblocks"
+  ],
+  "SelectedNode": "\\xblocks.sln",
+  "PreviewInSolutionExplorer": false
+>>>>>>> 1b2ed5fdff9de27c305e8c2d3dc0d2a3a5854090
 }
