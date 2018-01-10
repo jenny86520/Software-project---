@@ -15,11 +15,15 @@ namespace xblocks
     {
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+<<<<<<< HEAD
             if (e.KeyCode == Keys.P)//暫停
             {
                 if (game_mode == 0) { game_mode = 1; timer1.Enabled = true; }
                 else { game_mode = 0; timer1.Enabled = false; }
             }
+=======
+            
+>>>>>>> d282d5d56fcfe87d8a628374e02568bb5807a265
 
             if (e.KeyCode == Keys.Left)//左移
             {

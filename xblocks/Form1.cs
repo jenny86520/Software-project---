@@ -109,10 +109,14 @@ namespace banana
     {
         //int modeIndex = 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
         mode MODE;
 =======
         mode MODE = new mode0();
 >>>>>>> 9dbbd2776964be85934dc5e265d3fdc95a024e84
+=======
+        mode MODE = new mode0();
+>>>>>>> d282d5d56fcfe87d8a628374e02568bb5807a265
         public Form1()
         {
             InitializeComponent();

@@ -39,3 +39,14 @@ C:\Users\Hua\Desktop\xblocks\xblocks\obj\Debug\xblocks.csproj.CoreCompileInputs.
 C:\Users\Hua\Desktop\xblocks\xblocks\obj\Debug\xblocks.exe
 C:\Users\Hua\Desktop\xblocks\xblocks\obj\Debug\xblocks.pdb
 C:\Users\Hua\Desktop\xblocks\xblocks\obj\Debug\xblocks.TertisView.resources
+C:\Users\jenny\Desktop\Tertis\Software_project---Tetris\xblocks\xblocks\bin\Debug\xblocks.exe.config
+C:\Users\jenny\Desktop\Tertis\Software_project---Tetris\xblocks\xblocks\bin\Debug\xblocks.exe
+C:\Users\jenny\Desktop\Tertis\Software_project---Tetris\xblocks\xblocks\bin\Debug\xblocks.pdb
+C:\Users\jenny\Desktop\Tertis\Software_project---Tetris\xblocks\xblocks\obj\Debug\xblocks.csprojResolveAssemblyReference.cache
+C:\Users\jenny\Desktop\Tertis\Software_project---Tetris\xblocks\xblocks\obj\Debug\banana.mode.resources
+C:\Users\jenny\Desktop\Tertis\Software_project---Tetris\xblocks\xblocks\obj\Debug\xblocks.TertisView.resources
+C:\Users\jenny\Desktop\Tertis\Software_project---Tetris\xblocks\xblocks\obj\Debug\xblocks.Properties.Resources.resources
+C:\Users\jenny\Desktop\Tertis\Software_project---Tetris\xblocks\xblocks\obj\Debug\xblocks.csproj.GenerateResource.Cache
+C:\Users\jenny\Desktop\Tertis\Software_project---Tetris\xblocks\xblocks\obj\Debug\xblocks.csproj.CoreCompileInputs.cache
+C:\Users\jenny\Desktop\Tertis\Software_project---Tetris\xblocks\xblocks\obj\Debug\xblocks.exe
+C:\Users\jenny\Desktop\Tertis\Software_project---Tetris\xblocks\xblocks\obj\Debug\xblocks.pdb
